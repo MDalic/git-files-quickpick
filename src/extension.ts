@@ -34,9 +34,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
     const items: FileItem[] = [];
 
-    changedFiles.forEach((uri: vscode.Uri) => {
+    changedFiles.forEach((uri: vscode.Uri, index: number) => {
       items.push({
-        label: `${vscode.workspace.asRelativePath(uri).split('.').pop()}\t\t${vscode.workspace.asRelativePath(uri)}`,
+        label: `${index + 1}. ${vscode.workspace.asRelativePath(uri).split('.').pop()}\t\t${vscode.workspace.asRelativePath(uri)}`,
         description: "",
         uri,
         isStaged: false,
@@ -44,10 +44,10 @@ export async function activate(context: vscode.ExtensionContext) {
       });
     });
 
-    stagedFiles.forEach((uri: vscode.Uri) => {
+    stagedFiles.forEach((uri: vscode.Uri, index: number) => {
       items.push({
-        label: `🟢 ${vscode.workspace.asRelativePath(uri).split('.').pop()}\t\t${vscode.workspace.asRelativePath(uri)}`,
-        description: "",
+        label: `${changedFiles.length + index + 1}. ${vscode.workspace.asRelativePath(uri).split('.').pop()}\t\t${vscode.workspace.asRelativePath(uri)}`,
+        description: "🟢",  
         uri,
         isStaged: true,
         resourceUri: uri,
