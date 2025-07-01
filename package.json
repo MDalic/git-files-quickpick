@@ -2,7 +2,7 @@
   "name": "git-files-quickpick",
   "displayName": "Git Files QuickPick",
   "description": "QuickPick modal to view and open staged and changed Git files with icons.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -21,6 +21,10 @@
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MDalic/git-files-quickpick"
   },
   "devDependencies": {
     "@types/node": "^16.x",
